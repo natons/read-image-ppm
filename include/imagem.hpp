@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "cor.hpp"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ private:
 		int altura;
 		int largura;
 		int escalaMaxima;
-		list<Cor>;
+		list<Cor> RGB;
 
 public:
 		Imagem();
@@ -37,7 +38,7 @@ public:
 
 		list<Cor> getRGB();
 
-		void setRGB(int list<Cor>);
+		void setRGB(list<Cor> RGB);
 };
 
 #endif
