@@ -5,6 +5,8 @@
 #include <string>
 #include <list>
 #include "cor.hpp"
+#include "validacaoarquivo.hpp"
+#include <fstream>
 
 using namespace std;
 
@@ -39,6 +41,8 @@ public:
 		list<Cor> getRGB();
 
 		void setRGB(list<Cor> RGB);
+
+		void lerImagem(ifstream * arquivo);
 };
 
 #endif

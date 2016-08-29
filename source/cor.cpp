@@ -25,7 +25,7 @@ void Cor::setG(int G){
 }
 
 int Cor::getB(){
-	this->B = B;
+	return B;
 }
 
 void Cor::setB(int B){
