@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include <list>
-#include "cor.hpp"
 #include "validacaoarquivo.hpp"
 #include <fstream>
 
@@ -17,7 +16,6 @@ private:
 		int altura;
 		int largura;
 		int escalaMaxima;
-		list<Cor> RGB;
 
 public:
 		Imagem();
@@ -38,11 +36,9 @@ public:
 
 		void setEscalaMaxima(int escalaMaxima);
 
-		list<Cor> getRGB();
-
-		void setRGB(list<Cor> RGB);
-
 		void lerImagem(ifstream * arquivo);
+
+		void gravarImagem(ifstream * arquivo, ofstream * novoArquivo);
 };
 
 #endif

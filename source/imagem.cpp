@@ -1,6 +1,5 @@
 #include "imagem.hpp"
 #include "validacaoarquivo.hpp"
-#include "cor.hpp"
 #include <iostream>
 #include <string>
 #include <list>
@@ -44,14 +43,6 @@ void Imagem::setEscalaMaxima(int escalaMaxima){
 	this->escalaMaxima = escalaMaxima;
 }
 
-list<Cor> Imagem::getRGB(){
-	return RGB;
-}
-
-void Imagem::setRGB(list<Cor> RGB){
-	this->RGB = RGB;
-}
-
 void Imagem::lerImagem(ifstream * arquivo){
 
 	ValidacaoArquivo va;
@@ -70,23 +61,22 @@ void Imagem::lerImagem(ifstream * arquivo){
 
 	(*arquivo) >> escalaMaxima;
 
-	int R,G,B;
-	Cor *cor = new Cor();
+}
+
+void Imagem::gravarImagem(ifstream * arquivo, ofstream * novoArquivo){
+
+	arquivo->seekg(0,arquivo->beg);
+
+	ValidacaoArquivo va;
+	
+	va.validarNovoArquivo(novoArquivo);
+
+	string linha;
+
 	while(!arquivo->eof()){
-
-		//va.ignorarComentario(arquivo);
-		(*arquivo) >> R;
-
-		//va.ignorarComentario(arquivo);
-		(*arquivo) >> G;
-
-		//va.ignorarComentario(arquivo);
-		(*arquivo) >> B;
-		
-		cor->setR(R);
-		cor->setG(G);
-		cor->setB(B);
-
-		RGB.push_back(*cor);
+		getline(*arquivo,linha);
+		(*novoArquivo) << linha << endl;
 	}
+
+	cout << "Nova imagem criada com sucesso! " << endl;
 }

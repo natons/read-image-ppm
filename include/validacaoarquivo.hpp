@@ -12,6 +12,8 @@ public:
 
 		void validarArquivo(ifstream * arquivo);
 
+		void validarNovoArquivo(ofstream * arquivo);
+
 		void ignorarComentario(ifstream * arquivo);
 
 };

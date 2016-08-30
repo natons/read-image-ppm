@@ -3,13 +3,13 @@
 #include <string>
 #include <cstring>
 #include "imagem.hpp"
-#include "cor.hpp"
 #include <list>
 
 using namespace std;
 
 int main(){
 
+	
 	ifstream arquivo;
 
 	Imagem *imagem = new Imagem();
@@ -22,10 +22,12 @@ int main(){
 
 	cout << "Escala Máxima: " << imagem->getEscalaMaxima() << endl;
 	
-	/* 
-	list<Cor> cores = imagem->getRGB();
-	for(list<Cor>::iterator it=cores.begin(); it!=cores.end(); ++it)
-		cout << it->getR() << it->getG() << it->getB() << endl;
-	*/
+	ofstream novoArquivo;
+
+	imagem->gravarImagem(&arquivo, &novoArquivo);
+
+	novoArquivo.close();
+	arquivo.close();
+	
 	return 0;
 }

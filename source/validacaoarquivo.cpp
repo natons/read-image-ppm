@@ -9,18 +9,19 @@ using namespace std;
 void ValidacaoArquivo::validarArquivo(ifstream * arquivo){
 	string nomeImagem;
 
-	cout << "Entre com o diretório da imagem (incluindo o nome e extensao) ou  S para sair: ";
+	cout << "Entre com o nome da imagem (sem a extensao) ou  S para sair: ";
 	cout << flush;  
 	cin >> nomeImagem;
 
 	if(nomeImagem[0] == 's' || nomeImagem[0] == 'S')
 		exit(0);
 
-	arquivo->open(nomeImagem.c_str());
+	string diretorio = "source/img/" + nomeImagem + ".ppm";
+	arquivo->open(diretorio.c_str());
 
 	while(arquivo->fail()){
-		cout << "Erro na abertura do arquivo! Verifique o diretório" << endl;
-		cout << "Digite o diretório novamente (incluindo o nome e extensao) ou S para sair: ";
+		cout << "Erro na abertura do arquivo! Verifique o nome" << endl;
+		cout << "Digite o nome novamente (sem a extensao) ou S para sair: ";
 		cout << flush;  
 		cin >> nomeImagem;
 		if(nomeImagem[0] == 's' || nomeImagem[0] == 'S')
@@ -28,6 +29,22 @@ void ValidacaoArquivo::validarArquivo(ifstream * arquivo){
 		arquivo->open(nomeImagem.c_str());
 	}
 
+}
+
+void ValidacaoArquivo::validarNovoArquivo(ofstream * arquivo){
+
+	string nome;
+	cout << "Digite o nome da nova imagem (sem a extensao): ";
+	cout << flush;
+	cin >> nome;
+
+	string diretorio = "source/img/" + nome + ".ppm";
+	arquivo->open(diretorio.c_str());
+	
+	if(arquivo->fail()){
+		cout << "Erro na abertura do arquivo!" << endl;
+		exit(0);
+	}
 }
 
 void ValidacaoArquivo::ignorarComentario(ifstream * arquivo){
