@@ -1,4 +1,4 @@
-# Orientação a Objetos 1/2016
+# Orientação a Objetos 2/2016
 
 ## EP0 - C++
 
@@ -19,3 +19,9 @@ Para compilar e executar o programa em um sistema operacional Linux, siga as seg
 	**$ make**
 * Execute:
 	**$ make run**
+
+As entradas referentes aos nomes da imagem, não devem ser seguidas de sua extensão.
+
+### Onde devem se localizar os arquivos de imagem
+
+Para o funcionamento correto do software é necessário que as imagens .ppm estejam localizadas na pasta "source/img/", bem como a criação da nova imagem também estará armazenada neste diretório.

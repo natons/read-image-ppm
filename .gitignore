@@ -1,3 +1,4 @@
+#Arquivos referentes a compilação
+
 bin/*
 obj/*.o
-source/img/*.ppm
